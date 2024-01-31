@@ -1,0 +1,19 @@
+    def mostrar_progreso(self):
+        print(" ".join(self.letras_adivinadas))
+        print(f"Intentos restantes: {self.intentos_restantes}")
+
+    def pedir_letra(self):
+        while True:
+            letra = input("Adivina una letra: ").upper()
+            if len(letra) == 1 and letra.isalpha():
+                return letra
+            else:
+                print("Por favor, ingresa solo una letra.")
+
+    def actualizar_letras_adivinadas(self, letra):
+        if letra in self.palabra_secreta:
+            for i, l in enumerate(self.palabra_secreta):
+                if l == letra:
+                    self.letras_adivinadas[i] = letra
+            return True
+        return False
